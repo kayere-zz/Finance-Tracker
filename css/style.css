@@ -1,0 +1,63 @@
+body{
+    background-color: #3f729b;
+    color: aliceblue;
+    font-family: 'Amiri', serif;
+}
+
+#index-top{
+    margin-top: 2em;
+}
+
+.heading{
+    margin-bottom: 3em;
+}
+
+button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+  
+  .btn-login {
+    background: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 1em 3em;
+    position: relative;
+    margin: 2em;
+    margin-left:2em;
+    margin-bottom: 1.5em;
+  }
+  
+  button::before,
+  button::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  
+  button:hover {
+    color: #303030;
+  }
+  
+  .btn-login::after {
+    height: 0;
+    left: 50%;
+    top: 50%;
+    width: 0;
+  }
+  
+  .btn-login:hover:after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .modal{
+      color: black;
+  }
