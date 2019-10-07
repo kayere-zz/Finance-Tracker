@@ -27,3 +27,7 @@ nav{
 .h3-responsive{
   margin-top: -5em;
 }
+
+.card-deck{
+  margin: 2em;
+}
