@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Finance Tracker</title>
+      <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/mdb.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="signup/style.css">
+   </head>
+   <body class="container  text-center">
+      <div class="card signup-container">
+         <h5 class="card-header text-center py-4 clor">
+            <strong>Sign up</strong>
+         </h5>
+         <div class="card-body px-lg-5 pt-0">
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" action="#!">
+               <div class="form-row">
+                  <div class="col">
+                     <!-- First name -->
+                     <div class="md-form sign-up">
+                        <input type="text" id="first_name" class="form-control">
+                        <label for="first_name">First name</label>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <!-- Last name -->
+                     <div class="md-form">
+                        <input type="text" id="last_name" class="form-control">
+                        <label for="last_name">Last name</label>
+                     </div>
+                  </div>
+               </div>
+               <!-- E-mail -->
+               <div class="md-form mt-0">
+                  <input type="email" id="Email" class="form-control">
+                  <label for="Email">E-mail</label>
+               </div>
+               <!-- Password -->
+               <div class="md-form">
+                  <input type="password" id="Password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                  <label for="Password">Password</label>
+               </div>
+               <!-- Confirm Password -->
+               <div class="md-form" id="confirm_pass">
+                  <input type="password" id="confirm_password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                  <label for="confirm_password">Confirm Password</label>
+               </div>
+               <div class="pass_err">
+                  <img src="img/pass_err.png" width="40px" height="40px">
+                  <p>Passwords do not match</p>
+               </div>
+               <!-- Sign up button -->
+               <button class="btn waves-effect z-depth-0" type="submit" id="btn-signup">Sign up</button>
+               <hr>
+            </form>
+            <!-- Form -->
+         </div>
+      </div>
+      <!-- Material form register -->
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/popper.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/mdb.min.js"></script>
+      <script type="text/javascript" src="signup/script.js"></script>
+   </body>
+</html>
