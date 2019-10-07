@@ -1,21 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Finance Tracker</title>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="homepage/style.css">
-</head>
-<body>
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <script type="text/javascript" src="homepage/script.js"></script>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Finance Tracker</title>
+      <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/mdb.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="homepage/style.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+         <a class="navbar-brand" href="#">Financial Tracker</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Home</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Expenditures</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Income</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Reports</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+         <ol class="carousel-indicators">
+            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+               <div class="view">
+                  <img class="d-block w-100" src="img/broke.jpg"
+                    alt="First slide">
+                  <div class="mask rgba-black-strong"></div>
+               </div>
+               <div class="carousel-caption">
+                  <h3 class="h3-responsive">Don't worry if you can't recall where your money went.<br> We will tell you.</h3>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="view">
+                  <img class="d-block w-100" src="img/accounting.jpg"
+                     alt="Second slide">
+                  <div class="mask rgba-black-strong"></div>
+               </div>
+               <div class="carousel-caption">
+                  <h3 class="h3-responsive">We will calculate the total cash you have spent in that month <br>And your savings too!</h3>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="view">
+                  <img class="d-block w-100" src="img/graphs.jpg"
+                     alt="Third slide">
+                  <div class="mask rgba-black-strong"></div>
+               </div>
+               <div class="carousel-caption">
+                  <h3 class="h3-responsive">After the month you will receive an analysis of your finances. <br> We'll do it in charts!</h3>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/popper.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/mdb.min.js"></script>
+      <script type="text/javascript" src="homepage/script.js"></script>
+   </body>
 </html>

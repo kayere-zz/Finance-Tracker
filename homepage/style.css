@@ -1,0 +1,29 @@
+  *::-webkit-scrollbar {
+	width: 0 !important
+}
+
+* {
+	overflow: -moz-scrollbars-none;
+}
+
+* {
+	-ms-overflow-style: none;
+}
+
+body {
+	position: relative;
+	overflow-x: hidden;
+}
+nav{
+    background-color: #3f729b;
+}
+.nav-link{
+    color: aliceblue;   
+    font-size: 0.9em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.h3-responsive{
+  margin-top: -5em;
+}
