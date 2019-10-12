@@ -1,0 +1,75 @@
+*{
+    padding: 0.25em;
+    overflow: hidden;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    width: 40em;
+    background-color: #3f729b;
+    color: aliceblue;
+}
+th,td{
+    color: aliceblue;
+}
+
+h4{
+    margin:1em;
+}
+button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+  
+  .btn-add {
+    background: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 1em 3em;
+    position: relative;
+    margin: 2em;
+    margin-left:2em;
+    margin-bottom: 1.5em;
+  }
+  
+  button::before,
+  button::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  
+  button:hover {
+    color: #303030;
+  }
+  
+  .btn-add::after {
+    height: 0;
+    left: 50%;
+    top: 50%;
+    width: 0;
+  }
+  
+  .btn-add:hover:after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+#modal-title{
+    color:black;
+}
