@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,34 +12,48 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="reports/style.css">
 </head>
+
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#">Financial Tracker</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                   aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                   <ul class="navbar-nav">
-                      <li class="nav-item">
-                         <a class="nav-link" href="homepage.html">Home</span></a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="">Expenditures</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="income.html">Income</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="reports.html">Reports</a>
-                      </li>
-                   </ul>
-                </div>
-             </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Financial Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="homepage.html">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Expenditures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="income.html">Income</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="w-responsive text-center mx-auto p-4 mt-2 white-text">
+        <h2>Reports</h2>
+        <div class="card-deck">
+
+            <div class="card mb-4">
+                    <canvas id="income"></canvas>
+            </div>
+
+            <div class="card mb-4">
+                    <canvas id="expenditure"></canvas>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script src="reports/script.js"></script>
 </body>
+
 </html>

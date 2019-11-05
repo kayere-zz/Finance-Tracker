@@ -6,3 +6,7 @@ body{
     height: 100%;
     background-color: #3f729b;
 }
+canvas{
+    width: 400px;
+    height: 500px;
+}
