@@ -1,0 +1,8 @@
+*{
+    padding: 0.25em;
+}
+html,
+body{
+    height: 100%;
+    background-color: #3f729b;
+}
