@@ -11,7 +11,7 @@ type: 'bar',
 data: {
 labels: ["Salary", "Debts", "Business"],
 datasets: [{
-label: 'Income sources',
+label: '',
 data: [5000, 20000, 60000],
 backgroundColor: [
 'rgba(255, 99, 132, 0.2)',
@@ -46,7 +46,7 @@ type: 'bar',
 data: {
 labels: ["School fees", "Loans", "Food"],
 datasets: [{
-label: 'Where spent',
+label: '',
 data: [70000, 10000, 40000],
 backgroundColor: [
 'rgba(255, 206, 86, 0.2)',
