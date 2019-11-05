@@ -51,6 +51,7 @@ button::after {
     content: '';
     position: absolute;
     z-index: -1;
+    left: 0;
 }
 
 button:hover {
@@ -66,7 +67,6 @@ button:hover {
 
 .btn-add:hover:after {
     height: 100%;
-    left: 0;
     top: 0;
     width: 100%;
 }
