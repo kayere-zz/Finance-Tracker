@@ -1,6 +1,8 @@
 $(document).ready(function(){
     incomeChart();
     expenditureChart();
+    previous_incomeChart();
+    previous_expenditureChart();
 });
 
 function incomeChart(){
@@ -71,4 +73,12 @@ beginAtZero: true
 }
 }
 });
+}
+
+function previous_income(){
+
+}
+
+function previous_expenditureChart(){
+    
 }
