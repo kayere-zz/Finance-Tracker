@@ -1,8 +1,7 @@
 $(document).ready(function(){
     incomeChart();
     expenditureChart();
-    previous_incomeChart();
-    previous_expenditureChart();
+    previous_reportChart();
 });
 
 function incomeChart(){
@@ -75,33 +74,26 @@ beginAtZero: true
 });
 }
 
-function previous_incomeChart(){
+function previous_reportChart(){
     var ctx = $('#previous_income');
 
 var data = {
     labels: ["August", "September", "October"],
     datasets: [
         {
-            label: "Salary",
+            label: "Total Income",
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor:'rgba(255,99,132,1)',
             borderWidth: 1,
             data: [30000,70000,40000]
         },
         {
-            label: "Debts",
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor:'rgba(54, 162, 235, 1)',
+            label: "Total Expenditure",
+            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+            borderColor: 'rgba(255, 206, 86, 1)',
             borderWidth: 1,
             data: [40000,20000,50000]
         },
-        {
-            label: "Business",
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor:'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            data: [70000,20000,60000]
-        }
     ]
 };
 
@@ -119,50 +111,4 @@ var myBarChart = new Chart(ctx, {
         }
     }
 });
-}
-
-function previous_expenditureChart(){
-    var ctx = $('#previous_expenditure');
-
-    var data = {
-        labels: ["August", "September", "October"],
-        datasets: [
-            {
-                label: "School fees",
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 1, 
-                data: [50000,70000,30000]
-            },
-            {
-                label: "Loans",
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-                data: [60000,30000,50000]
-            },
-            {
-                label: "Food",
-                backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                borderColor: 'rgba(255, 159, 64, 1)',
-                borderWidth: 1,
-                data: [70000,25000,30000]
-            }
-        ]
-    };
-    
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: {
-            barValueSpacing: 20,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                    }
-                }]
-            }
-        }
-    });
 }
