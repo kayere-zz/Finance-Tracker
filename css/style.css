@@ -62,3 +62,8 @@ button::after {
     color: black;
   }
 
+.user_err,
+.pass_err{
+  display: none;
+  color: red;
+}
