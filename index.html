@@ -27,16 +27,18 @@
                   <div class="modal-body">
                      <div class="card">
                         <div class="card-body px-lg-5 pt-0">
-                           <form class="text-center" style="color: #757575;" action="#!">
+                           <form class="text-center">
                               <div class="md-form">
-                                 <input type="email" id="materialLoginFormEmail" class="form-control">
-                                 <label for="materialLoginFormEmail">E-mail</label>
+                                 <input type="email" id="mail" class="form-control">
+                                 <label for="mail">E-mail</label>
                               </div>
                               <div class="md-form">
-                                 <input type="password" id="materialLoginFormPassword" class="form-control">
-                                 <label for="materialLoginFormPassword">Password</label>
+                                 <input type="password" id="pass" class="form-control">
+                                 <label for="pass">Password</label>
                               </div>
-                              <button type="submit" class="btn btn-primary" data-dismiss="modal">Login</button>
+                              <button type="button" class="btn btn-primary btn-login">Login</button>
+                              <p class="user_err">A user with that email does not exist</p>
+                              <p class="pass_err">wrong password. Try again</p>
                               <p>Don't have an account?
                                  <a href="signup.html">Register</a>
                               </p>
@@ -49,6 +51,7 @@
          </div>
       </div>
       <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/pouchdb-7.1.1.js"></script>
       <script type="text/javascript" src="js/popper.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/mdb.min.js"></script>

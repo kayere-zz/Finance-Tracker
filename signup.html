@@ -23,26 +23,26 @@
                   <div class="col">
                      <!-- First name -->
                      <div class="md-form sign-up">
-                        <input type="text" id="first_name" class="form-control">
+                        <input type="text" id="first_name" class="form-control" required>
                         <label for="first_name">First name</label>
                      </div>
                   </div>
                   <div class="col">
                      <!-- Last name -->
                      <div class="md-form">
-                        <input type="text" id="last_name" class="form-control">
+                        <input type="text" id="last_name" class="form-control" required>
                         <label for="last_name">Last name</label>
                      </div>
                   </div>
                </div>
                <!-- E-mail -->
                <div class="md-form mt-0">
-                  <input type="email" id="Email" class="form-control">
+                  <input type="email" id="Email" class="form-control" required>
                   <label for="Email">E-mail</label>
                </div>
                <!-- Password -->
                <div class="md-form">
-                  <input type="password" id="Password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                  <input type="password" id="Password" class="form-control" required>
                   <label for="Password">Password</label>
                </div>
                <!-- Confirm Password -->
@@ -55,7 +55,7 @@
                   <p>Passwords do not match</p>
                </div>
                <!-- Sign up button -->
-               <button class="btn waves-effect z-depth-0" type="submit" id="btn-signup">Sign up</button>
+               <button class="btn waves-effect z-depth-0" type="button" id="btn-signup">Sign up</button>
                <hr>
             </form>
             <!-- Form -->
@@ -63,6 +63,7 @@
       </div>
       <!-- Material form register -->
       <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/pouchdb-7.1.1.js"></script>
       <script type="text/javascript" src="js/popper.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/mdb.min.js"></script>
