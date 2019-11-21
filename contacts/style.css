@@ -1,0 +1,21 @@
+*{
+    padding: 0.25em;
+    overflow: hidden;
+}
+html, body, .container-fullwidth {
+    height: 100%;
+}
+
+body {
+    background-color: #3f729b;
+}
+
+.container-fullwidth{
+    display: table;
+    margin: auto;
+}
+
+.container{
+    display: table-cell;
+    vertical-align: middle;
+}
