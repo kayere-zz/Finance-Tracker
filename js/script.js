@@ -3,14 +3,14 @@ $(document).ready(function(){
 });
 
 function validate(){
-    let mail = $("#mail").val()
-    let pass = $("#pass").val()
+    let mail = $("#mail").val();
+    let pass = $("#pass").val();
 
     if(mail == "" || pass == ""){
         console.log("A field is empty")
     }
     else{
-        verify(mail, pass)
+        verify(mail, pass);
     }
 }
 
@@ -31,11 +31,6 @@ function verify(mail, pass){
 
 function cont_verify(db, mail, pass){
     db.get(mail+"_id").then(function(doc){
-        if(doc.password !== pass){
-            $('.pass_err').show()
-        }
-        else{
-            window.location.href = '/homepage.html';
-        }
+        (doc.password !== pass)? $('.pass_err').show() : window.location.href = '/homepage.html';
     }); 
 }

@@ -1,7 +1,70 @@
 $(document).ready(function(){
+    let end = localStorage.getItem("end");
+    let db = new PouchDB('http://localhost:5984/'+end);
+    db.info()
+
+    let sch_fees,loans,food, total;
+        
+    db.get('school_fees').then(function(doc){
+        sch_fees = doc.amount;
+        $("#school_fees").append(sch_fees);
+        db.get('loans').then(function(doc){
+            loans = doc.amount;
+            $('#loans').append(loans);
+            db.get('food').then(function(doc){
+                food = doc.amount;
+                $('#food').append(food);
+                total = parseInt(sch_fees)+parseInt(loans)+parseInt(food);
+                $("#total").append(total);
+            })
+        })
+    
+    })
+
     function blink_text(){
         $('.total').fadeOut(500);
         $('.total').fadeIn(500);
     }
     setInterval(blink_text, 1000);
+
+    $('.btn-submit').on('click', function(){validate()});
 });
+
+function validate(){
+   let category = $('.mdb-select').val()
+   let amount = $('#amount').val()
+
+   if(category == null || amount == ""){
+       console.log("error in fields")
+   }
+   else{
+       $('form')[0].reset();
+       $(".modal").modal('toggle');
+       addDoc(category, amount)
+   }
+}
+
+function addDoc(category, amount){
+    let end = localStorage.getItem("end");
+    let db = new PouchDB('http://localhost:5984/'+end);
+    db.info()
+
+    let db_amount;
+    let new_amount;
+    
+    db.get(category).then(function(doc) {
+        db_amount = doc.amount;
+        new_amount = parseInt(db_amount) + parseInt(amount);
+
+        return db.put({
+          _id: category,
+          _rev: doc._rev,
+          amount : new_amount
+        });
+      }).then(function(response) {
+       console.log(response);
+       window.location.href = "/expenditures.html";
+      }).catch(function (err) {
+        console.log(err);
+      });
+}
