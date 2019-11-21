@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $('.pass_err').hide();
     $('#btn-signup').on('click',function(){validate()});
@@ -25,6 +26,7 @@ function validate(){
 function createDB(first, last, mail, pass){
     let arr = mail.split("@");
     let end = arr[0];
+    localStorage.setItem('end', end);
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info() 
 
@@ -36,7 +38,28 @@ function createDB(first, last, mail, pass){
         "password" : pass
     }
 
-    db.put(user).then(function(){
-        window.location.href = '/homepage.html';
+    let school_fees = {
+        "_id": "school_fees",
+        "amount": 0
+    }
+
+    let loans = {
+        "_id": "loans",
+        "amount": 0
+    }
+
+    let food = {
+        "_id": "food",
+        "amount": 0
+    }
+
+    db.put(school_fees).then(function(){
+        db.put(loans).then(function(){
+            db.put(food).then(function(){ 
+                db.put(user).then(function(){
+                    window.location.href = '/homepage.html';
+                });
+            });
+        });
     });
 }

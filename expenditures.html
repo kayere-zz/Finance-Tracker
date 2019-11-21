@@ -48,18 +48,18 @@
             <tbody>
             <tr>
                 <th scope="row">School fees</th>
-                <td>50,000</td>
+                <td id="school_fees"></td>
             </tr>
             <tr>
                 <th scope="row">Loans</th>
-                <td>30,000</td>
+                <td id = "loans"></td>
             </tr>
             <tr>
                 <th scope="row">Food</th>
-                <td>40,000</td>
+                <td id="food"></td>
             </tr>
             <tr>
-                <th scope="row" colspan="2" class="text-center total"><strong>Total : 120,000</strong></th>
+                <th scope="row" colspan="2" class="text-center total"><strong id="total">Total : </strong></th>
             </tr>
             </tbody>
         </table>
@@ -76,18 +76,18 @@
                                 <div class="card-body px-lg-5 pt-0">
                                     <form class="text-center" style="color: #757575;" action="#!">
                                         <div class="md-form">
-                                            <select class="mdb-select md-form">
+                                            <select class="mdb-select md-form" required>
                                                 <option value="" disabled selected>Choose where spent</option>
-                                                <option value="1">School fees</option>
-                                                <option value="2">Loans</option>
-                                                <option value="3">Food</option>
+                                                <option value="school_fees">School fees</option>
+                                                <option value="loans">Loans</option>
+                                                <option value="food">Food</option>
                                             </select>
                                         </div>
                                         <div class="md-form">
-                                            <input type="number" id="amount" class="form-control">
+                                            <input type="number" id="amount" class="form-control" required>
                                             <label for="amount">Enter amount</label>
                                         </div>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" id="button">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-submit" id="button">Submit</button>
                                     </form>
                                 </div>
                             </div>
@@ -99,9 +99,11 @@
     </div>
 </div>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/pouchdb-7.1.1.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="expenditures/script.js"></script>
 </body>
 </html>
