@@ -48,18 +48,18 @@
                 <tbody>
                 <tr>
                     <th scope="row">Salary</th>
-                    <td>10,000</td>
+                    <td id="salary"></td>
                 </tr>
                 <tr>
                     <th scope="row">Business</th>
-                    <td>20,000</td>
+                    <td id="business"></td>
                 </tr>
                 <tr>
                     <th scope="row">Debts</th>
-                    <td>20,000</td>
+                    <td id="debts"></td>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="2" class="text-center total"><strong>Total : 50,000</strong></th>
+                    <th scope="row" colspan="2" class="text-center total" id="total"><strong>Total : </strong></th>
                 </tr>
                 </tbody>
             </table>
@@ -76,11 +76,11 @@
                                     <div class="card-body px-lg-5 pt-0">
                                         <form class="text-center" style="color: #757575;" action="#!">
                                             <div class="md-form">
-                                                <select class="mdb-select md-form">
+                                                <select class="mdb-select md-form" id="select">
                                                     <option value="" disabled selected>Choose income source</option>
-                                                    <option value="1">Salary</option>
-                                                    <option value="2">Business</option>
-                                                    <option value="3">Sacco</option>
+                                                    <option value="salary">Salary</option>
+                                                    <option value="business">Business</option>
+                                                    <option value="debts">Debts</option>
                                                 </select>
                                             </div>
                                             <div class="md-form">
@@ -99,6 +99,7 @@
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/pouchdb-7.1.1.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>

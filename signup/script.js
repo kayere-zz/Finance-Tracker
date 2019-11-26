@@ -52,12 +52,31 @@ function createDB(first, last, mail, pass){
         "_id": "food",
         "amount": 0
     }
+    var salary = {
+        "_id": "salary",
+        "amount": 0
+    }
+    var business = {
+        "_id": "business",
+        "amount": 0
+    }
+    var debts = {
+        "_id": "debts",
+        "amount": 0
+    }
+
 
     db.put(school_fees).then(function(){
         db.put(loans).then(function(){
             db.put(food).then(function(){ 
                 db.put(user).then(function(){
-                    window.location.href = '/homepage.html';
+                    db.put(salary).then(function(){
+                        db.put(business).then(function(){
+                            db.put(debts).then(function(){
+                                window.location.href = '/homepage.html';
+                            });
+                        });
+                    });
                 });
             });
         });
