@@ -14,10 +14,11 @@ function validate(){
     }
 }
 
+let end;
 function verify(mail, pass){
     mail = mail.toLowerCase();
     let arr = mail.split("@");
-    let end = arr[0];
+    end = arr[0];
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function (info) {
        if(info.doc_count < 1){
@@ -31,6 +32,12 @@ function verify(mail, pass){
 
 function cont_verify(db, mail, pass){
     db.get(mail+"_id").then(function(doc){
-        (doc.password !== pass)? $('.pass_err').show() : window.location.href = '/homepage.html';
+        if(doc.password !== pass)
+        $('.pass_err').show()
+        else {
+            localStorage.setItem('end', end);
+            localStorage.setItem('mail',mail);
+            window.location.href = '/homepage.html';
+        }
     }); 
 }
