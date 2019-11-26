@@ -1,13 +1,28 @@
 $(document).ready(function(){
-    incomeChart();
+    var user= localStorage.getItem('user');
+    $('#log').append(user);
     previous_reportChart();
-    let food, fees, loan;
+    let food, fees, loan, salary, debts, business;
     let end = localStorage.getItem('end');
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function(info){
         getExpenditures(db);
+        getIncome(db);
     });
 });
+
+function getIncome(db){
+    db.get('salary').then(function(doc){
+        salary= doc.amount;
+        db.get('business').then(function(doc){
+            business= doc.amount;
+            db.get('debts').then(function(doc){
+                debts= doc.amount;
+                incomeChart(salary, debts, business);
+            });
+        });
+    });
+}
 
 function getExpenditures(db){
     db.get("loans").then(function(doc){
@@ -22,7 +37,7 @@ function getExpenditures(db){
     });
 }
 
-function incomeChart(){
+function incomeChart(salary,debts,business){
     //bar
 var ctxB = $('#income');
 var myBarChart = new Chart(ctxB, {
@@ -31,7 +46,7 @@ data: {
 labels: ["Salary", "Debts", "Business"],
 datasets: [{
 label: '',
-data: [5000, 20000, 60000],
+data: [salary, debts, business],
 backgroundColor: [
 'rgba(255, 99, 132, 0.2)',
 'rgba(54, 162, 235, 0.2)',
@@ -57,7 +72,7 @@ beginAtZero: true
 });
 }
 
-function expenditureChart(fess, loan, food){
+function expenditureChart(fees, loan, food){
     //bar
 var ctxB = $('#expenditure');
 var myBarChart = new Chart(ctxB, {

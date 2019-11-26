@@ -19,3 +19,8 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+
+#log{
+    margin-left: 480px;
+    color: white;
+  }

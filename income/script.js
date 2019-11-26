@@ -1,5 +1,7 @@
 $(document).ready(function(){
     var end = localStorage.getItem('end');
+    var user= localStorage.getItem('user');
+    $('#log').append(user);
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info();
 
