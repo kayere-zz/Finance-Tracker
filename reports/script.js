@@ -1,8 +1,26 @@
 $(document).ready(function(){
     incomeChart();
-    expenditureChart();
     previous_reportChart();
+    let food, fees, loan;
+    let end = localStorage.getItem('end');
+    let db = new PouchDB('http://localhost:5984/'+end);
+    db.info().then(function(info){
+        getExpenditures(db);
+    });
 });
+
+function getExpenditures(db){
+    db.get("loans").then(function(doc){
+        loan = doc.amount;
+        db.get("food").then(function(doc){
+            food = doc.amount
+            db.get("school_fees").then(function(doc){
+                fees = doc.amount;
+                expenditureChart(fees, loan, food);
+            });
+        });
+    });
+}
 
 function incomeChart(){
     //bar
@@ -39,7 +57,7 @@ beginAtZero: true
 });
 }
 
-function expenditureChart(){
+function expenditureChart(fess, loan, food){
     //bar
 var ctxB = $('#expenditure');
 var myBarChart = new Chart(ctxB, {
@@ -48,10 +66,10 @@ data: {
 labels: ["School fees", "Loans", "Food"],
 datasets: [{
 label: '',
-data: [70000, 10000, 40000],
+data: [fees, loan, food],
 backgroundColor: [
 'rgba(255, 206, 86, 0.2)',
-'rgba(255, 206, 86, 0.2)',
+'rgba(200, 180, 72, 0.2)',
 'rgba(255, 159, 64, 0.2)'
 ],
 borderColor: [
