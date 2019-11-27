@@ -51,21 +51,21 @@
                         <div class="card-body px-lg-5 pt-0">
                            <form class="text-center">
                                 <div class="md-form">
-                                    <input type="text" id="concern" class="form-control">
-                                    <label for="concer">Enter your concern topic</label>
+                                    <input type="text" id="concern" class="form-control" required>
+                                    <label for="concern">Enter your concern topic</label>
                                 </div>
                                 <div class="md-form">
-                                    <textarea id="message" class="md-textarea form-control" rows="3"></textarea>
-                                    <label for="Message">Enter your message</label>
+                                    <textarea id="message" class="md-textarea form-control" rows="2" required></textarea>
+                                    <label for="message">Enter your message</label>
                                 </div>
-                              <button class="btn btn-primary waves-effect z-depth-0" type="button" id="btn-signup">Sign up</button>
-                              <hr>
+                              <button class="btn btn-primary waves" type="button">Send</button>
                            </form>
                         </div>
                      </div>
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="contacts/smtp.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>

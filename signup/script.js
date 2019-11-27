@@ -66,6 +66,20 @@ function createDB(first, last, mail, pass){
         "amount": 0
     }
 
+    let income_total = {
+        "_id" : "income_total",
+        "totals": []
+    }
+
+    let expenditure_total = {
+        "_id" : "expenditure_total",
+        "totals": []
+    }
+
+    let all_months = {
+        "_id" : "months",
+        "months" : []
+    }
 
     db.put(school_fees).then(function(){
         db.put(loans).then(function(){
@@ -74,7 +88,13 @@ function createDB(first, last, mail, pass){
                     db.put(salary).then(function(){
                         db.put(business).then(function(){
                             db.put(debts).then(function(){
-                                window.location.href = '/homepage.html';
+                               db.put(income_total).then(function(){
+                                   db.put(expenditure_total).then(function(){
+                                        db.put(all_months).then(function(){
+                                            window.location.href = '/homepage.html';
+                                        });
+                                   });
+                               });
                             });
                         });
                     });
