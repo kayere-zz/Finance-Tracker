@@ -68,17 +68,17 @@ function createDB(first, last, mail, pass){
 
     let income_total = {
         "_id" : "income_total",
-        "totals": []
+        "values": []
     }
 
     let expenditure_total = {
         "_id" : "expenditure_total",
-        "totals": []
+        "values": []
     }
 
     let all_months = {
         "_id" : "months",
-        "months" : []
+        "values" : []
     }
 
     db.put(school_fees).then(function(){

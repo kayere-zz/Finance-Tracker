@@ -120,13 +120,11 @@ beginAtZero: true
 function previous_reportChart(db){
     let months, inc_data, exp_data;
     db.get("months").then(function(doc){
-        months = doc.months;
-        console.log(months);
+        months = doc.values;
         db.get("income_total").then(function(doc){
-            inc_data = doc.totals;
-            console.log(inc_data)
+            inc_data = doc.values;
             db.get("expenditure_total").then(function(doc){
-                exp_data = doc.totals;
+                exp_data = doc.values;
                 populateChart(months, inc_data, exp_data);
             });
         });
@@ -175,12 +173,12 @@ function updateInc(db){
     let income_total;
     let income_tots = localStorage.getItem('income_tots');
     db.get('income_total').then(function(doc){
-       income_total = doc.totals;
+       income_total = doc.values;
        income_total.push(parseInt(income_tots));
        return db.put({
            _id: doc._id,
            _rev: doc._rev,
-           totals: income_total
+           values: income_total
        }).then(function(response){
            if(response.ok){
              updateExp(db)
@@ -194,12 +192,12 @@ function updateExp(db){
     let expenditure_total;
     let expenditure_tots = localStorage.getItem('expenditure_tots');
     db.get("expenditure_total").then(function(doc){
-        expenditure_total = doc.totals;
+        expenditure_total = doc.values;
         expenditure_total.push(parseInt(expenditure_tots));
         return db.put({
             _id: doc._id,
             _rev: doc._rev,
-            totals: expenditure_total
+            values: expenditure_total
         }).then(function(response){
             if(response.ok){
                updateMonths(db)
@@ -212,12 +210,12 @@ function updateMonths(db){
     let month = moment().format('MMMM YYYY');
     let months;
     db.get("months").then(function(doc){
-        months = doc.months;
+        months = doc.values;
         months.push(month); 
         return db.put({
             _id : doc._id,
             _rev: doc._rev,
-            months : months
+            values : months
         }).then(function(response){
             if(response.ok){
                 sendMail(month, db);
@@ -241,11 +239,24 @@ function sendMail(month, db){
      }).then(function(response){
          if(response == "OK"){
              alert("Report sent to your email")
-             restartDB(db);
+             resetDocs(db);
          }
      });
 }
 
-function restartDB(db){
-    
+function resetDocs(db){
+    let docs = ["business", "salary", "debts", "school_fees", "loans", "food"];
+    for(i = 0; i < docs.length; i++){
+        db.get(docs[i]).then(function(doc){
+            db.put({
+                _id : doc._id,
+                _rev : doc._rev,
+                amount : 0
+            }).then(function(response){
+                if(response.ok){
+                   window.location.href = "/reports.html"
+                }
+            });
+        });
+    }
 }
