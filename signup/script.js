@@ -27,7 +27,7 @@ function createDB(first, last, mail, pass){
     let arr = mail.split("@");
     let end = arr[0];
     localStorage.setItem('end', end);
-    localStorage.setitem('mail', mail);
+    localStorage.setItem('mail', mail);
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info() 
 
