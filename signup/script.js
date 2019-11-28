@@ -81,6 +81,11 @@ function createDB(first, last, mail, pass){
         "values" : []
     }
 
+    let tartget = {
+        "_id": "target",
+        "amount": 0
+    }
+
     db.put(school_fees).then(function(){
         db.put(loans).then(function(){
             db.put(food).then(function(){ 
@@ -91,7 +96,9 @@ function createDB(first, last, mail, pass){
                                db.put(income_total).then(function(){
                                    db.put(expenditure_total).then(function(){
                                         db.put(all_months).then(function(){
-                                            window.location.href = '/homepage.html';
+                                            db.put(tartget).then(function(){
+                                                window.location.href = '/homepage.html';
+                                            });
                                         });
                                    });
                                });

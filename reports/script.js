@@ -13,6 +13,10 @@ $(document).ready(function(){
     $("#get_report").on('click', function(){
         updateInc(db);
     });
+
+    $("#btn_target").on('click', function(){
+        getTarget(db);
+    });
 });
 
 function getIncome(db){
@@ -259,4 +263,19 @@ function resetDocs(db){
             });
         });
     }
+}
+
+function getTarget(db){
+    let target = $("#target").val();
+    $("form")[0].reset();
+    $(".target_div").hide();
+    db.get("target").then(function(doc){
+        return db.put({
+            _id : doc._id,
+            _rev: doc._rev,
+            amount: target
+        });
+    });
+
+    $("#target_text").append("Your target is "+ target);
 }
