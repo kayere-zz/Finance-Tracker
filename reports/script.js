@@ -249,7 +249,7 @@ function sendMail(month, db){
 }
 
 function resetDocs(db){
-    let docs = ["business", "salary", "debts", "school_fees", "loans", "food"];
+    let docs = ["business", "salary", "debts", "school_fees", "loans", "food", "target"];
     for(i = 0; i < docs.length; i++){
         db.get(docs[i]).then(function(doc){
             db.put({
