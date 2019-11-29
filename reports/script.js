@@ -229,6 +229,7 @@ function updateMonths(db){
 }
 
 function sendMail(month, db){
+    var mail= localStorage.getItem('mail');
     let total_inc = localStorage.getItem("income_tots");
     let total_exp = localStorage.getItem("expenditure_tots");
 
@@ -236,7 +237,7 @@ function sendMail(month, db){
         Host: "smtp.gmail.com",
         Username: "linus.m.muema@gmail.com",
         Password: "Barralle0.",
-        To: 'linus.m.muema@gmail.com',
+        To: mail,
         From: "info@financetracker.com",
         Subject: "Finance tracker monthly summary ",
         Body: "<h1> The finance report of "+ month + "</h1>" + "<h2> Total Expenditure : "+total_exp+" </h2> <br>" + "<h2>Total Income : "+total_inc+"</h2>"
