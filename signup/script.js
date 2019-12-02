@@ -97,7 +97,7 @@ function createDB(first, last, mail, pass){
                                    db.put(expenditure_total).then(function(){
                                         db.put(all_months).then(function(){
                                             db.put(tartget).then(function(){
-                                                window.location.href = '/homepage.html';
+                                                window.location.href = './homepage.html';
                                             });
                                         });
                                    });

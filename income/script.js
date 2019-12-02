@@ -22,7 +22,7 @@ $(document).ready(function(){
                 amount: new_amount
             });
         }).then(function(){
-            window.location.href = 'income.html';
+            window.location.href = './income.html';
         });
 
     });

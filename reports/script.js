@@ -259,7 +259,7 @@ function resetDocs(db){
                 amount : 0
             }).then(function(response){
                 if(response.ok){
-                   window.location.href = "/reports.html"
+                   window.location.href = "./reports.html"
                 }
             });
         });

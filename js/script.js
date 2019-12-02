@@ -37,7 +37,7 @@ function cont_verify(db, mail, pass){
         else {
             localStorage.setItem('end', end);
             localStorage.setItem('mail',mail);
-            window.location.href = '/homepage.html';
+            window.location.href = './homepage.html';
         }
     }); 
 }

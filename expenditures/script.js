@@ -65,7 +65,7 @@ function addDoc(category, amount){
         });
       }).then(function(response) {
        console.log(response);
-       window.location.href = "/expenditures.html";
+       window.location.href = "./expenditures.html";
       }).catch(function (err) {
         console.log(err);
       });
