@@ -14,6 +14,8 @@ $(document).ready(function() {
       lastName= doc.last_name;
       name= firstName+' '+lastName;
       localStorage.setItem('user',name);
-      $('#log').append(name); 
-    });
+      $('#log').append(name).animate({
+          marginLeft: '330px'
+        },);
+      });
   }

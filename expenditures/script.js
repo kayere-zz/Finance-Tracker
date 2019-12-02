@@ -9,15 +9,15 @@ $(document).ready(function(){
         
     db.get('school_fees').then(function(doc){
         sch_fees = doc.amount;
-        $("#school_fees").append(sch_fees);
         db.get('loans').then(function(doc){
             loans = doc.amount;
-            $('#loans').append(loans);
             db.get('food').then(function(doc){
                 food = doc.amount;
-                $('#food').append(food);
                 total = parseInt(sch_fees)+parseInt(loans)+parseInt(food);
-                $("#total").append(total);
+                $("#school_fees").append(sch_fees);
+                setTimeout(function(){$('#loans').append(loans);}, 200);
+                setTimeout(function(){$('#food').append(food);}, 400);
+                setTimeout(function(){$("#total").append(total);}, 600);
             })
         })
     
