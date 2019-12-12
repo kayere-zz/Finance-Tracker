@@ -107,7 +107,7 @@ function createDB(first, last, mail, pass){
                                    });
                                });
                                 localStorage.removeItem('logStatus');
-                                window.location.href = '/homepage.html';
+                                window.location.href = './homepage.html';
                             });
                         });
                     });

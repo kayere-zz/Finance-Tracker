@@ -42,7 +42,7 @@ function cont_verify(db, mail, pass){
             localStorage.setItem('end', end);
             localStorage.setItem('mail',mail);
             localStorage.removeItem('logStatus');
-            window.location.href = '/homepage.html';
+            window.location.href = './homepage.html';
         }
     }); 
 }

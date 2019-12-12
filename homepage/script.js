@@ -27,7 +27,7 @@ $(document).ready(function() {
       localStorage.removeItem('end');
       localStorage.removeItem('mail');
       localStorage.removeItem('user');
-      window.location.href ='index.html'
+      window.location.href ='./index.html'
     })
   }
 

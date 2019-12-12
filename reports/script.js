@@ -1,6 +1,6 @@
 var status = localStorage.getItem('logStatus');
 if (status=="loggedout"){
-    window.location.href = 'index.html';
+    window.location.href = './index.html';
 }
 $(".report").hide();
 $(".chart").hide();
@@ -268,7 +268,7 @@ function resetDocs(db){
                 amount : 0
             }).then(function(response){
                 if(response.ok){
-                   window.location.href = "/reports.html"
+                   window.location.href = "./reports.html"
                 }
             });
         });
