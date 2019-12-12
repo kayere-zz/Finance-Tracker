@@ -1,5 +1,9 @@
 $(document).ready(function(){
     $(".btn-login").on('click', function(){validate()});
+    var status = localStorage.getItem('logStatus');
+    if (status=="loggedout"){
+    alert("You have logged out. Please Login again")
+}
 });
 
 function validate(){
@@ -37,6 +41,7 @@ function cont_verify(db, mail, pass){
         else {
             localStorage.setItem('end', end);
             localStorage.setItem('mail',mail);
+            localStorage.removeItem('logStatus');
             window.location.href = '/homepage.html';
         }
     }); 

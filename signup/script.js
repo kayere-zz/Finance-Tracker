@@ -1,3 +1,7 @@
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
 
 $(document).ready(function(){
     $('.pass_err').hide();
@@ -27,7 +31,7 @@ function createDB(first, last, mail, pass){
     let arr = mail.split("@");
     let end = arr[0];
     localStorage.setItem('end', end);
-    localStorage.setitem('mail', mail);
+    localStorage.setItem('mail', mail);
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info() 
 
@@ -74,6 +78,7 @@ function createDB(first, last, mail, pass){
                     db.put(salary).then(function(){
                         db.put(business).then(function(){
                             db.put(debts).then(function(){
+                                localStorage.removeItem('logStatus');
                                 window.location.href = '/homepage.html';
                             });
                         });

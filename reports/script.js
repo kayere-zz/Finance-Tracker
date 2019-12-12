@@ -1,7 +1,12 @@
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
 $(".report").hide();
 $(".chart").hide();
 $("#incomeReport").animate({right: "200px"});
 $("#expenditureReport").animate({left: "200px"});
+
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
