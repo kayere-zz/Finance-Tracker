@@ -29,7 +29,7 @@ function validate(){
 
 function createDB(first, last, mail, pass){
     let arr = mail.split("@");
-    let end = arr[0];
+    let end = arr[0].replace(/[^a-zA-Z0-9]/g, "");
     localStorage.setItem('end', end);
     localStorage.setItem('mail', mail);
     let db = new PouchDB('http://localhost:5984/'+end);
