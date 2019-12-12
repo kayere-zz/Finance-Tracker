@@ -1,15 +1,31 @@
+$(".report").hide();
+$(".chart").hide();
+$("#incomeReport").animate({right: "200px"});
+$("#expenditureReport").animate({left: "200px"});
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
-    previous_reportChart();
-    let food, fees, loan, salary, debts, business;
+    
     let end = localStorage.getItem('end');
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function(info){
-        getExpenditures(db);
-        getIncome(db);
+        previous_reportChart(db);
     });
+
+    $("#get_report").on('click', function(){
+        updateInc(db);
+    });
+
+    $("#btn_target").on('click', function(){
+        getTarget(db);
+    });
+    getExpenditures(db);
+    getIncome(db);
+    animation(db);
 });
+
+let salary, debts, business;
+let food,fees,loan;
 
 function getIncome(db){
     db.get('salary').then(function(doc){
@@ -18,7 +34,8 @@ function getIncome(db){
             business= doc.amount;
             db.get('debts').then(function(doc){
                 debts= doc.amount;
-                incomeChart(salary, debts, business);
+                income_tots = parseInt(salary)+parseInt(debts)+parseInt(business);
+                localStorage.setItem("income_tots", income_tots)
             });
         });
     });
@@ -31,7 +48,8 @@ function getExpenditures(db){
             food = doc.amount
             db.get("school_fees").then(function(doc){
                 fees = doc.amount;
-                expenditureChart(fees, loan, food);
+                expenditure_tots = parseInt(fees)+parseInt(loan)+parseInt(food);
+                localStorage.setItem("expenditure_tots", expenditure_tots)
             });
         });
     });
@@ -107,25 +125,38 @@ beginAtZero: true
 });
 }
 
-function previous_reportChart(){
-    var ctx = $('#previous_income');
+function previous_reportChart(db){
+    let months, inc_data, exp_data;
+    db.get("months").then(function(doc){
+        months = doc.values;
+        db.get("income_total").then(function(doc){
+            inc_data = doc.values;
+            db.get("expenditure_total").then(function(doc){
+                exp_data = doc.values;
+                populateChart(months, inc_data, exp_data);
+            });
+        });
+    });
+}
 
-var data = {
-    labels: ["August", "September", "October"],
+function populateChart(months, inc_data, exp_data){
+    var ctx = $('#previous_income');
+    var data = {
+    labels: months,
     datasets: [
         {
             label: "Total Income",
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor:'rgba(255,99,132,1)',
             borderWidth: 1,
-            data: [30000,70000,40000]
+            data: inc_data
         },
         {
             label: "Total Expenditure",
             backgroundColor: 'rgba(255, 206, 86, 0.2)',
             borderColor: 'rgba(255, 206, 86, 1)',
             borderWidth: 1,
-            data: [40000,20000,50000]
+            data: exp_data
         },
     ]
 };
@@ -145,3 +176,124 @@ var myBarChart = new Chart(ctx, {
     }
 });
 }
+
+function updateInc(db){
+    let income_total;
+    let income_tots = localStorage.getItem('income_tots');
+    db.get('income_total').then(function(doc){
+       income_total = doc.values;
+       income_total.push(parseInt(income_tots));
+       return db.put({
+           _id: doc._id,
+           _rev: doc._rev,
+           values: income_total
+       }).then(function(response){
+           if(response.ok){
+             updateExp(db)
+           }
+       });
+    });
+
+}
+
+function updateExp(db){
+    let expenditure_total;
+    let expenditure_tots = localStorage.getItem('expenditure_tots');
+    db.get("expenditure_total").then(function(doc){
+        expenditure_total = doc.values;
+        expenditure_total.push(parseInt(expenditure_tots));
+        return db.put({
+            _id: doc._id,
+            _rev: doc._rev,
+            values: expenditure_total
+        }).then(function(response){
+            if(response.ok){
+               updateMonths(db)
+            }
+        });
+    });
+}
+
+function updateMonths(db){
+    let month = moment().format('MMMM YYYY');
+    let months;
+    db.get("months").then(function(doc){
+        months = doc.values;
+        months.push(month); 
+        return db.put({
+            _id : doc._id,
+            _rev: doc._rev,
+            values : months
+        }).then(function(response){
+            if(response.ok){
+                sendMail(month, db);
+            }
+        });
+    });
+}
+
+function sendMail(month, db){
+    var mail= localStorage.getItem('mail');
+    let total_inc = localStorage.getItem("income_tots");
+    let total_exp = localStorage.getItem("expenditure_tots");
+
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "linus.m.muema@gmail.com",
+        Password: "Barralle0.",
+        To: mail,
+        From: "info@financetracker.com",
+        Subject: "Finance tracker monthly summary ",
+        Body: "<h1> The finance report of "+ month + "</h1>" + "<h2> Total Expenditure : "+total_exp+" </h2> <br>" + "<h2>Total Income : "+total_inc+"</h2>"
+     }).then(function(response){
+         if(response == "OK"){
+             alert("Report sent to your email")
+             resetDocs(db);
+         }
+     });
+}
+
+function resetDocs(db){
+    let docs = ["business", "salary", "debts", "school_fees", "loans", "food", "target"];
+    for(i = 0; i < docs.length; i++){
+        db.get(docs[i]).then(function(doc){
+            db.put({
+                _id : doc._id,
+                _rev : doc._rev,
+                amount : 0
+            }).then(function(response){
+                if(response.ok){
+                   window.location.href = "/reports.html"
+                }
+            });
+        });
+    }
+}
+
+function getTarget(db){
+    let target = $("#target").val();
+    $("form")[0].reset();
+    $(".target_div").hide();
+    db.get("target").then(function(doc){
+        return db.put({
+            _id : doc._id,
+            _rev: doc._rev,
+            amount: target
+        });
+    });
+
+    $("#target_text").append("Your target is "+ target);
+}
+
+function animation(db){
+    $(".report").show("1000", function(){
+        $(".report").animate({left: "0px"}, "2000", function(){
+            $(".chart").slideDown("slow", function(){
+                incomeChart(salary, debts, business);
+                expenditureChart(fees, loan, food);
+            });
+        });
+    });
+    
+}
+

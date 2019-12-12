@@ -16,4 +16,8 @@ h4{
 #log{
     margin-left: 550px;
     color: white;
-  }
+}
+.chart{
+    height: 230px;
+    width: 100px;
+}
