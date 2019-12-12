@@ -1,3 +1,12 @@
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
+$(".report").hide();
+$(".chart").hide();
+$("#incomeReport").animate({right: "200px"});
+$("#expenditureReport").animate({left: "200px"});
+
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
@@ -5,8 +14,6 @@ $(document).ready(function(){
     let end = localStorage.getItem('end');
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function(info){
-        getExpenditures(db);
-        getIncome(db);
         previous_reportChart(db);
     });
 
@@ -17,10 +24,15 @@ $(document).ready(function(){
     $("#btn_target").on('click', function(){
         getTarget(db);
     });
+    getExpenditures(db);
+    getIncome(db);
+    animation(db);
 });
 
+let salary, debts, business;
+let food,fees,loan;
+
 function getIncome(db){
-    let salary, debts, business;
     db.get('salary').then(function(doc){
         salary= doc.amount;
         db.get('business').then(function(doc){
@@ -29,14 +41,12 @@ function getIncome(db){
                 debts= doc.amount;
                 income_tots = parseInt(salary)+parseInt(debts)+parseInt(business);
                 localStorage.setItem("income_tots", income_tots)
-                incomeChart(salary, debts, business);
             });
         });
     });
 }
 
 function getExpenditures(db){
-    let food,fees,loan;
     db.get("loans").then(function(doc){
         loan = doc.amount;
         db.get("food").then(function(doc){
@@ -45,7 +55,6 @@ function getExpenditures(db){
                 fees = doc.amount;
                 expenditure_tots = parseInt(fees)+parseInt(loan)+parseInt(food);
                 localStorage.setItem("expenditure_tots", expenditure_tots)
-                expenditureChart(fees, loan, food);
             });
         });
     });
@@ -259,7 +268,7 @@ function resetDocs(db){
                 amount : 0
             }).then(function(response){
                 if(response.ok){
-                   window.location.href = "./reports.html"
+                   window.location.href = "/reports.html"
                 }
             });
         });
@@ -280,3 +289,16 @@ function getTarget(db){
 
     $("#target_text").append("Your target is "+ target);
 }
+
+function animation(db){
+    $(".report").show("1000", function(){
+        $(".report").animate({left: "0px"}, "2000", function(){
+            $(".chart").slideDown("slow", function(){
+                incomeChart(salary, debts, business);
+                expenditureChart(fees, loan, food);
+            });
+        });
+    });
+    
+}
+

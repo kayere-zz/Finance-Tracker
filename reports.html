@@ -41,21 +41,27 @@
     </nav>
     <div class="w-responsive text-center mx-auto p-4 mt-2 white-text">
         <h2>Reports</h2>
+        <div class="card-deck deck">
+            <div class="card mb-4 report" id="incomeReport">
+                <h4 class="card-title">Income Report</h4>
+            </div>
+            <div class="card mb-4 report" id="expenditureReport">
+                <h4 class="card-title">Expenditure Report</h4>
+            </div>
+        </div>
         <div class="card-deck">
 
-            <div class="card mb-4">
-                <h4 class="card-title">Income report</h4>
-                    <canvas id="income"></canvas>
+            <div class="card mb-4 chart">
+                    <canvas class="canvas" id="income"></canvas>
             </div>
 
-            <div class="slide card mb-4">
-                    <h4 class="card-title">Expenditure report</h4>
-                    <canvas id="expenditure"></canvas>
+            <div class="chart card mb-4">
+                    <canvas class="cancas" id="expenditure"></canvas>
             </div>
         </div>
     </div>
     <div class="w-responsive text-center mx-auto p-4 mt-2 white-text target_div">
-        <h2>Target</h2>
+        <h2 id="target">Target</h2>
         <div class="card">
                 <form class="text-center">
                         <div class="md-form">

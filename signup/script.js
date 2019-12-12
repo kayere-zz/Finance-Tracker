@@ -1,3 +1,7 @@
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
 
 $(document).ready(function(){
     $('.pass_err').hide();
@@ -102,6 +106,8 @@ function createDB(first, last, mail, pass){
                                         });
                                    });
                                });
+                                localStorage.removeItem('logStatus');
+                                window.location.href = '/homepage.html';
                             });
                         });
                     });
