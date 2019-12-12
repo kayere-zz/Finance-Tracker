@@ -22,7 +22,7 @@ let end;
 function verify(mail, pass){
     mail = mail.toLowerCase();
     let arr = mail.split("@");
-    end = arr[0];
+    end = arr[0].replace(/[^a-zA-Z0-9]/g, "");
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function (info) {
        if(info.doc_count < 1){
