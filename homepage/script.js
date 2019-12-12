@@ -14,8 +14,35 @@ $(document).ready(function() {
       lastName= doc.last_name;
       name= firstName+' '+lastName;
       localStorage.setItem('user',name);
-      $('#log').append(name).animate({
-          marginLeft: '330px'
-        },);
+      $('#log').append(name);
       });
+    animation();
   }
+
+  function animation(){
+    $("#home").animate({bottom: "27px"}, 100,function(){
+      $("#expenditure").animate({bottom: "10px"}, 100, function(){
+        $("#home").animate({top: "0px"}, 100, function(){
+          $("#income").animate({bottom: "10px"}, 100, function(){
+            $("#expenditure").animate({top: "0px"}, 100, function(){
+              $("#reports").animate({bottom: "10px"}, 100, function(){
+                $("#income").animate({top: "0px"}, 100, function(){
+                  $("#feedback").animate({bottom: "10px"}, 100, function(){
+                    $("#reports").animate({top: "0px"}, 100, function(){
+                      $("#logout").animate({bottom: "10px"}, 100, function(){
+                        $("#feedback").animate({top: "0px"}, 100, function(){
+                          $("#logout").animate({top: "0px"}, 100);
+                            $("#log").animate({marginLeft: '330px'},"fast");
+                        });
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  }
+  

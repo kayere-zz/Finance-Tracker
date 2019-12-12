@@ -31,3 +31,6 @@ nav{
 .card-deck{
   margin: 2em;
 }
+.nav{
+  position: fixed;
+}

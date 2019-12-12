@@ -1,3 +1,7 @@
+$(".report").hide();
+$(".chart").hide();
+$("#incomeReport").animate({right: "200px"});
+$("#expenditureReport").animate({left: "200px"});
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
@@ -5,8 +9,6 @@ $(document).ready(function(){
     let end = localStorage.getItem('end');
     let db = new PouchDB('http://localhost:5984/'+end);
     db.info().then(function(info){
-        getExpenditures(db);
-        getIncome(db);
         previous_reportChart(db);
     });
 
@@ -17,6 +19,7 @@ $(document).ready(function(){
     $("#btn_target").on('click', function(){
         getTarget(db);
     });
+    animation(db);
 });
 
 function getIncome(db){
@@ -280,3 +283,16 @@ function getTarget(db){
 
     $("#target_text").append("Your target is "+ target);
 }
+
+function animation(db){
+    $(".report").show("1000", function(){
+        $(".report").animate({left: "0px"}, "2000", function(){
+            $(".chart").slideDown("slow", function(){
+                getExpenditures(db);
+                getIncome(db);
+            });
+        });
+    });
+    
+}
+
