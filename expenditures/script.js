@@ -1,3 +1,12 @@
+var status = localStorage.getItem('logStatus');
+$("#school_fees").hide();
+$('#loans').hide();
+$('#food').hide();
+$("#total").hide();
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
+
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
@@ -15,11 +24,18 @@ $(document).ready(function(){
                 food = doc.amount;
                 total = parseInt(sch_fees)+parseInt(loans)+parseInt(food);
                 $("#school_fees").append(sch_fees);
-                setTimeout(function(){$('#loans').append(loans);}, 200);
-                setTimeout(function(){$('#food').append(food);}, 400);
-                setTimeout(function(){$("#total").append(total);}, 600);
-            })
-        })
+                $('#loans').append(loans);
+                $('#food').append(food);
+                $("#total").append(total);
+                $("#school_fees").show("fast", function(){
+                    $('#loans').show("fast", function(){
+                        $('#food').show("fast", function(){
+                            $("#total").show("fast");
+                        });
+                    });
+                });
+            });
+        });
     
     })
 
@@ -65,7 +81,7 @@ function addDoc(category, amount){
         });
       }).then(function(response) {
        console.log(response);
-       window.location.href = "/expenditures.html";
+       window.location.href = "./expenditures.html";
       }).catch(function (err) {
         console.log(err);
       });

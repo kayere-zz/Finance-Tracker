@@ -16,16 +16,9 @@ h4{
 #log{
     margin-left: 550px;
     color: white;
-  }
+}
 .report{
-    margin: 5px;
+    height: 50px;
+    width: auto;
 }
-.card-deck{
-    margin: 5px;
-}
-.chart{
-    height: 200px;
-}
-.navbar{
-    
-}
+

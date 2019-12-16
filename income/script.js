@@ -1,3 +1,12 @@
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = './index.html';
+}
+$('#salary').hide();
+$('#business').hide();
+$('#debts').hide();
+$('#total').hide();
+
 $(document).ready(function(){
     var end = localStorage.getItem('end');
     var user= localStorage.getItem('user');
@@ -22,7 +31,7 @@ $(document).ready(function(){
                 amount: new_amount
             });
         }).then(function(){
-            window.location.href = 'income.html';
+            window.location.href = './income.html';
         });
 
     });
@@ -43,5 +52,13 @@ $(document).ready(function(){
             })
         })
     })
+
+    $('#salary').show("fast", function(){
+        $('#business').show("fast", function(){
+            $('#debts').show("fast", function(){
+                $('#total').show("fast");
+            })
+        })
+    })    
    
 });

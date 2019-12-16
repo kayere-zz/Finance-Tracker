@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function(){
     var user= localStorage.getItem('user');
     $('#log').append(user);
@@ -5,11 +6,6 @@ $(document).ready(function(){
     $('button').on('click', function(){
         getValues();
     });
-
-    var status = localStorage.getItem('logStatus');
-    if (status=="loggedout"){
-        window.location.href = './index.html';
-    }
 })
 
 function getValues(){
@@ -37,6 +33,13 @@ function sendMail(concern, message){
          }
      });
 }
+=======
+var status = localStorage.getItem('logStatus');
+if (status=="loggedout"){
+    window.location.href = 'index.html';
+}
 
+$(document).ready(function(){
 
-
+});
+>>>>>>> f4259e7e99553f8e3ad1295e90d018d95f9540e4

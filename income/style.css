@@ -78,3 +78,8 @@ button:hover {
     margin-left: 550px;
     color: white;
   }
+
+.tdata{
+    width: 90px;
+    height: 20px;
+}

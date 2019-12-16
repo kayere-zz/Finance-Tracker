@@ -5,11 +5,6 @@ $(document).ready(function(){
     $('button').on('click', function(){
         getValues();
     });
-
-    var status = localStorage.getItem('logStatus');
-    if (status=="loggedout"){
-        window.location.href = './index.html';
-    }
 })
 
 function getValues(){
@@ -37,6 +32,3 @@ function sendMail(concern, message){
          }
      });
 }
-
-
-
