@@ -33,27 +33,27 @@ You need to install CouchDB.
 * If your'e on Linux/Ubuntu/Debian you need to install through your terminal.
  
  1. Copy the following command to install CouchDB
- ```terminal
+ ```bash
  $ sudo snap install couchdb
  ```
 
  2. Verify your installation
- ```terminal
+ ```bash
  $ curl localhost:5984
  ```
  *you should see something like :
 
  ```json
- {"couchdb":"Welcome","version":"2.2.0",...}
+ {"couchdb":"Welcome","version":"2.2.0","..."}
  ```
 
 3. Set up [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/)
-```terminal
+```bash
 $ npm install -g add-cors-to-couchdb
 ```
 
 4. Add CORS to couchDB
-```terminal
+```bash
 $ add-cors-to-couchdb
 ```
 
