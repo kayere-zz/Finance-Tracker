@@ -9,7 +9,7 @@
 ## Technologies used
 * The application uses the following technologies :
 
-1. HTML : It is used to create the web pages and styles using css.
+1. HTML : It is used to create the web pages and stylind done in css.
 
 2. [MDB ](https://mdbootstrap.com/) : We use the Material design bootstrap library to make the webpages more appealing.
 
