@@ -73,7 +73,7 @@ If you have downloaded the project files:
 2. Open the index.html file in your preferred browser and use the application.
 
 ## License
-* This project uses the [MIT](license) license.
+* This project uses the [MIT](LICENSE) license.
 
 
 
