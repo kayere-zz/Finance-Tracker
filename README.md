@@ -23,7 +23,7 @@
 
 6. [Smtp.js ](https://smtpjs.com/) : This javascript library helps users to send emails through a configured smtp server. We make use of the Gmail smtp server.
 
-7. [ChartJS ](https://chatjs.org/) : 
+7. [ChartJS ](https://chartjs.org/) : It is used to create charts and graphs on the HTML5 canvas.
 
 
     
