@@ -1,0 +1,22 @@
+{
+  "name": "finance-tracker",
+  "version": "1.0.0",
+  "description": "This is the front-end web applications for finance tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayere/Finance-Tracker.git"
+  },
+  "author": "Peter Kayere",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kayere/Finance-Tracker/issues"
+  },
+  "homepage": "https://github.com/kayere/Finance-Tracker#readme",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
