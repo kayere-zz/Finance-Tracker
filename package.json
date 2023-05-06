@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/kayere/Finance-Tracker#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.2"
   }
 }
